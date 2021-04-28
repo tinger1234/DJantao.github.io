@@ -1,0 +1,448 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>DJantao | DJantao</title><meta name="author" content="DJantao"><meta name="copyright" content="DJantao"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="SQL2008 表达式：是常量、变量、列或函数等与运算符的任意组合。1、字符串函数函数 名称 参数 示例 说明  ascii(字符串表达式) 1select ascii(&amp;#x27;abc&amp;#x27;) 返回 97  返回字符串中最左侧的字符的ASCII 码。  char(整数表达式) 1select char(100) 返回 d  把ASCII 码转换为字符。介于0 和 255 之间的整数。如果">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DJantao">
+<meta property="og:url" content="https://tinger1234.github.io/DJantao.github.io/2021/04/28/SQL/SQL2008%20%E8%A1%A8%E8%BE%BE%E5%BC%8F%EF%BC%9A%E6%98%AF%E5%B8%B8%E9%87%8F%E3%80%81%E5%8F%98%E9%87%8F%E3%80%81%E5%88%97%E6%88%96%E5%87%BD%E6%95%B0%E7%AD%89%E4%B8%8E%E8%BF%90%E7%AE%97%E7%AC%A6%E7%9A%84%E4%BB%BB%E6%84%8F%E7%BB%84%E5%90%88%E3%80%82/index.html">
+<meta property="og:site_name" content="DJantao">
+<meta property="og:description" content="SQL2008 表达式：是常量、变量、列或函数等与运算符的任意组合。1、字符串函数函数 名称 参数 示例 说明  ascii(字符串表达式) 1select ascii(&amp;#x27;abc&amp;#x27;) 返回 97  返回字符串中最左侧的字符的ASCII 码。  char(整数表达式) 1select char(100) 返回 d  把ASCII 码转换为字符。介于0 和 255 之间的整数。如果">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg">
+<meta property="article:published_time" content="2021-04-28T08:42:16.954Z">
+<meta property="article:modified_time" content="2021-04-28T08:55:00.071Z">
+<meta property="article:author" content="DJantao">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg"><link rel="shortcut icon" href="/DJantao.github.io/img/favicon.png"><link rel="canonical" href="https://tinger1234.github.io/DJantao.github.io/2021/04/28/SQL/SQL2008%20%E8%A1%A8%E8%BE%BE%E5%BC%8F%EF%BC%9A%E6%98%AF%E5%B8%B8%E9%87%8F%E3%80%81%E5%8F%98%E9%87%8F%E3%80%81%E5%88%97%E6%88%96%E5%87%BD%E6%95%B0%E7%AD%89%E4%B8%8E%E8%BF%90%E7%AE%97%E7%AC%A6%E7%9A%84%E4%BB%BB%E6%84%8F%E7%BB%84%E5%90%88%E3%80%82/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/DJantao.github.io/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/DJantao.github.io/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-04-28 16:55:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://i.loli.net/2021/03/26/aW12bLRG5yJ8BsI.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/DJantao.github.io/archives/"><div class="headline">Articles</div><div class="length-num">24</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/DJantao.github.io/tags/"><div class="headline">Tags</div><div class="length-num">3</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/DJantao.github.io/categories/"><div class="headline">Categories</div><div class="length-num">3</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/DJantao.github.io/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/DJantao.github.io/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/DJantao.github.io/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/DJantao.github.io/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/DJantao.github.io/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/DJantao.github.io/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/DJantao.github.io/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/DJantao.github.io/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/DJantao.github.io/">DJantao</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/DJantao.github.io/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/DJantao.github.io/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/DJantao.github.io/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/DJantao.github.io/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/DJantao.github.io/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/DJantao.github.io/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/DJantao.github.io/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/DJantao.github.io/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">No title</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2021-04-28T08:42:16.954Z" title="Created 2021-04-28 16:42:16">2021-04-28</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2021-04-28T08:55:00.071Z" title="Updated 2021-04-28 16:55:00">2021-04-28</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="SQL2008-表达式：是常量、变量、列或函数等与运算符的任意组合。"><a href="#SQL2008-表达式：是常量、变量、列或函数等与运算符的任意组合。" class="headerlink" title="SQL2008 表达式：是常量、变量、列或函数等与运算符的任意组合。"></a><code>SQL2008</code> 表达式：是常量、变量、列或函数等与运算符的任意组合。</h1><h2 id="1、字符串函数"><a href="#1、字符串函数" class="headerlink" title="1、字符串函数"></a>1、字符串函数</h2><p>函数 名称 参数 示例 说明</p>
+<ul>
+<li><p><strong><code>ascii</code>(字符串表达式)</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> ascii(<span class="string">&#x27;abc&#x27;</span>) 返回 <span class="number">97</span></span><br></pre></td></tr></table></figure>
+
+<p>返回字符串中最左侧的字符的ASCII 码。</p>
+</li>
+<li><p><strong>char(整数表达式)</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="type">char</span>(<span class="number">100</span>) 返回 d</span><br></pre></td></tr></table></figure>
+
+<p>把ASCII 码转换为字符。介于0 和 255 之间的整数。如果该整数表达式不在此范围内，将返回NULL 值。</p>
+</li>
+<li><p><strong><code>charindex</code>(字符串表达式 1, 字符串表达式2[,整数表达式])</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> charindex(<span class="string">&#x27;ab&#x27;</span>,<span class="string">&#x27;BCabTabD&#x27;</span>)返回 <span class="number">3</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> charindex(<span class="string">&#x27;ab&#x27;</span>,<span class="string">&#x27;BCabTabD&#x27;</span>,<span class="number">4</span>)返回 <span class="number">6</span></span><br></pre></td></tr></table></figure>
+
+<p>在字符串2 中查找字符串 1)如果存在返回第一个匹配的位置，如果不存在返回0。如果字符串 1 和字符串 2 中有一个是null 则返回 null。可以指定在字符串2) 中查找的起始位置。</p>
+</li>
+<li><p><strong>difference(字符串表达式 1，字符串表达式 2)</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> difference(<span class="string">&#x27;Green&#x27;</span>,<span class="string">&#x27;Greene&#x27;</span>)返回 <span class="number">4</span></span><br></pre></td></tr></table></figure>
+
+<p>返回一个0 到 4 的整数值，指示两个字符表达式的之间的相似程度。</p>
+<p>0 表示几乎不同或完全不同，</p>
+<p>4 表示几乎相同或完全相同。</p>
+<p>注意相似并不代表相等</p>
+</li>
+<li><p><strong>left(字符串表达式，整数表达式)</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">left</span>(<span class="string">&#x27;abcdefg&#x27;</span>,<span class="number">2</span>) 返回 ab</span><br></pre></td></tr></table></figure>
+
+<p>返回字符串中从左边开始指定个数的字符。</p>
+</li>
+<li><p><strong>right(字符串表达式，整数表达式)</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">right</span>(<span class="string">&#x27;abcdefg&#x27;</span>,<span class="number">2</span>) 返回 fg</span><br></pre></td></tr></table></figure>
+
+<p>返回字符串中从右边开始指定个数的字符。</p>
+</li>
+<li><p><strong><code>len(字符串表达式)</code></strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> len(<span class="string">&#x27;abcdefg&#x27;</span>)返回 <span class="number">7</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> len(<span class="string">&#x27;abcdefg&#x27;</span>) 返回 <span class="number">7</span></span><br></pre></td></tr></table></figure>
+
+<p>返回指定字符串表达式的字符数，其中不包含尾随空格。</p>
+</li>
+<li><p><strong>lower(字符串表达式)</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">lower</span>(<span class="string">&#x27;ABCDEF&#x27;</span>)返回 abcdef</span><br></pre></td></tr></table></figure>
+
+<p>返回大写字符数据转换为小写的字符表达式。</p>
+</li>
+<li><p><strong>upper(字符串表达式)</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">upper</span>(<span class="string">&#x27;abcdef&#x27;</span>)返回 ABCDEF</span><br></pre></td></tr></table></figure>
+
+<p>返回小写字符数据转换为大写的字符表达式。</p>
+</li>
+<li><p><strong>ltrim(字符串表达式)</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> ltrim(<span class="string">&#x27;abc&#x27;</span>)返回 abc</span><br></pre></td></tr></table></figure>
+
+<p>返回删除了前导空格之后的字符表达式。</p>
+</li>
+<li><p><strong>rtrim(字符串表达式)</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> rtrim(<span class="string">&#x27;abc&#x27;</span>)返回 abc</span><br></pre></td></tr></table></figure>
+
+<p>返回删除了尾随空格之后的字符表达式。</p>
+</li>
+<li><p><strong>patindex(字符串表达式 1，字符串表达式 2)</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> patindex(<span class="string">&#x27;%ab%&#x27;</span>,<span class="string">&#x27;123ab456&#x27;</span>)返回<span class="number">4</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> patindex(<span class="string">&#x27;ab%&#x27;</span>,<span class="string">&#x27;123ab456&#x27;</span>)返回<span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> patindex(<span class="string">&#x27;___ab%&#x27;</span>,<span class="string">&#x27;123ab456&#x27;</span>)返回<span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> patindex(<span class="string">&#x27;___ab_&#x27;</span>,<span class="string">&#x27;123ab456&#x27;</span>)返回<span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<p>在字符串表达式</p>
+<p>1 中可以使用通配符，此字符串的第一个字符和最后一个字符通常是%。%表示任意多个字符，_表示任意字符返回字符串表达式</p>
+<p>2 中字符串表达式 1 所指定模式第一次出现的起始位置。没有找到返回0</p>
+</li>
+<li><p><strong>reverse(字符串表达式)</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> reverse(<span class="string">&#x27;abcde&#x27;</span>)返回 edcba</span><br></pre></td></tr></table></figure>
+
+<p>返回指定字符串反转后的新字符串</p>
+</li>
+<li><p><strong>space(整数表达式)</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="string">&#x27;a&#x27;</span><span class="operator">+</span>space(<span class="number">2</span>)<span class="operator">+</span><span class="string">&#x27;b&#x27;</span> 返回 a b</span><br></pre></td></tr></table></figure>
+
+<p>返回由指定数目的空格组成的字符串。</p>
+</li>
+<li><p><strong>str(float 型小数[,总长度[,小数点后保留的位数]])</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> str(<span class="number">123.451</span>)返回</span><br><span class="line"></span><br><span class="line"><span class="number">123</span>(<span class="number">123</span>前面有空格)</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> str(<span class="number">123.451</span>,<span class="number">3</span>)返回<span class="number">123</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> str(<span class="number">123.451</span>,<span class="number">7</span>,<span class="number">3</span>)返回<span class="number">123.451</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> str(<span class="number">123.451</span>,<span class="number">7</span>,<span class="number">1</span>)返回<span class="number">123.5</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> str(<span class="number">123.451</span>,<span class="number">5</span>,<span class="number">3</span>)返回<span class="number">123.5</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> str(<span class="number">123.651</span>,<span class="number">2</span>)返回<span class="operator">*</span><span class="operator">*</span></span><br></pre></td></tr></table></figure>
+
+<p>返回由数字转换成的字符串。返回字符数不到总长度的前面补空格，超过总长度的截断小数位。如果需要截断整数位则返回**。</p>
+<p>注意在截断时遵循四舍五入    <u>总长度</u>。它包括小数点、符号、数字以及空格。默认值为10。小数点后最多保留16 位。默认不保留小数点后面的数字</p>
+</li>
+<li><p><strong>stuff(字符串表达式 1，开始位置，长度，字符串表达式 2)</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> stuff(<span class="string">&#x27;abcdef&#x27;</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="string">&#x27;123&#x27;</span>)</span><br><span class="line"></span><br><span class="line">返回 a123def</span><br></pre></td></tr></table></figure>
+
+<p>在字符串表达式</p>
+<p>1 、中在指定的开始位置删除指定长度的字符，并在指定的开始位置处插入字符串表达式</p>
+<p>2、返回新字符串</p>
+</li>
+<li><p><strong>substring(字符串表达式，开始位置，长度)</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">substring</span>(<span class="string">&#x27;abcdef&#x27;</span>,<span class="number">2</span>,<span class="number">2</span>)返回bc</span><br></pre></td></tr></table></figure>
+
+<p>返回子字符串</p>
+</li>
+<li><p><strong>replace(字符串表达式 1，字符串表达式 2，字符串表达式 3)</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Select</span> replace(<span class="string">&#x27;abcttabchhabc&#x27;</span>,<span class="string">&#x27;abc&#x27;</span>,<span class="string">&#x27;123&#x27;</span>)</span><br><span class="line"></span><br><span class="line">返回 <span class="number">123</span>tt123hh123</span><br></pre></td></tr></table></figure>
+
+<p>用字符串表达式3 替换字符串表达式 1 中出现的所有字符串表达式2 的匹配项。返回新的字符串</p>
+</li>
+</ul>
+<h2 id="2、日期和时间函数"><a href="#2、日期和时间函数" class="headerlink" title="2、日期和时间函数"></a>2、日期和时间函数</h2><p>函数名称</p>
+<p>参数 示例 说明</p>
+<ul>
+<li><p><strong><code>dateadd(日期部分，数字，日期)</code></strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> dateadd(<span class="keyword">year</span>,<span class="number">45</span>,<span class="string">&#x27;1990-12-11&#x27;</span>)</span><br><span class="line"></span><br><span class="line">返回 <span class="number">2035</span><span class="number">-12</span><span class="number">-11</span> <span class="number">00</span>:<span class="number">00</span>:<span class="number">00.000</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> dateadd(<span class="keyword">month</span>,<span class="number">45</span>,<span class="string">&#x27;1990-12-11&#x27;</span>)</span><br><span class="line"></span><br><span class="line">返回 <span class="number">1994</span><span class="number">-09</span><span class="number">-11</span> <span class="number">00</span>:<span class="number">00</span>:<span class="number">00.000</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> dateadd(mm,<span class="number">45</span>,<span class="string">&#x27;1990-12-11&#x27;</span>)</span><br><span class="line"></span><br><span class="line">返回 <span class="number">1994</span><span class="number">-09</span><span class="number">-11</span> <span class="number">00</span>:<span class="number">00</span>:<span class="number">00.000</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> dateadd(qq,<span class="number">12</span>,<span class="string">&#x27;1990-12-11&#x27;</span>)</span><br><span class="line"></span><br><span class="line">返回 <span class="number">1993</span><span class="number">-12</span><span class="number">-11</span> <span class="number">00</span>:<span class="number">00</span>:<span class="number">00.000</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> dateadd(hh,<span class="number">12</span>,<span class="string">&#x27;1990-12-11&#x27;</span>)</span><br><span class="line"></span><br><span class="line">返回 <span class="number">1990</span><span class="number">-12</span><span class="number">-11</span> <span class="number">12</span>:<span class="number">00</span>:<span class="number">00.000</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> dateadd(yy,<span class="number">-12</span>,<span class="string">&#x27;1990-12-11&#x27;</span>)</span><br><span class="line"></span><br><span class="line">返回 <span class="number">1978</span><span class="number">-12</span><span class="number">-11</span> <span class="number">00</span>:<span class="number">00</span>:<span class="number">00.000</span></span><br></pre></td></tr></table></figure>
+
+<p>返回给指定日期加上一个时间间隔后的新的日期值。</p>
+<p>数字：用于与指定的日期部分相加的值。如果指定了非整数值，</p>
+<p>则将舍弃该值的小数部分，舍弃时不遵循四舍五入。</p>
+<p>日期：指定的原日期</p>
+<p>在此函数中**<code>dw，dy，dd</code>** 效果一样都表示天</p>
+</li>
+<li><p><strong><code>datediff</code>(日期部分，开始日期，结束日期)</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> datediff(yy,<span class="string">&#x27;1990-12-11&#x27;</span>,<span class="string">&#x27;2008-9-10&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>返回两个指定日期的指定日期部分的差的整数值。</p>
+<p>在计算时由结束日期减去开始日期 返回 18</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">selectdatediff(mm,<span class="string">&#x27;2007-12-11&#x27;</span>,<span class="string">&#x27;2008-9-10&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>返回 9 在此函数中<code>dw，dy，dd</code> 效果一样都表示天</p>
+</li>
+<li><p><strong><code>datename(日期部分，日期)</code></strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> datename(mm,<span class="string">&#x27;2007-12-11&#x27;</span>)返回 <span class="number">12</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> datename(dw,<span class="string">&#x27;2007-12-11&#x27;</span>)返回星期二</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> datename(dd, <span class="string">&#x27;2007-12-11&#x27;</span>)返回 <span class="number">11</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>返回表示指定日期的指定日期部分的字符串。</p>
+<p><code>dw</code> 表示一星期中星期几，wk 表示一年中的第几个星期</p>
+<p><code>dy</code> 表示一年中的第几天</p>
+</li>
+<li><p><strong><code>datepart(日期部分，日期)</code></strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> datepart(mm,<span class="string">&#x27;2007-12-11&#x27;</span>)返回 <span class="number">12</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> datepart(dw,<span class="string">&#x27;2007-12-11&#x27;</span>)返回 <span class="number">3</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> datepart(dd, <span class="string">&#x27;2007-12-11&#x27;</span>)返回 <span class="number">11</span></span><br></pre></td></tr></table></figure>
+
+<p>返回表示指定日期的指定日期部分的整数。</p>
+<p>wk 表示一年中的第几个星期</p>
+<p><code>dy</code> 表示一年中的第几天,</p>
+<p><code>dw</code> 表示一星期中星期几，返回整数默认 1 为星期天</p>
+</li>
+<li><p><strong><code>getdate无参数</code></strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> getdate()</span><br><span class="line">返回 <span class="number">2009</span><span class="number">-04</span><span class="number">-28</span> <span class="number">18</span>:<span class="number">57</span>:<span class="number">24.153</span> </span><br></pre></td></tr></table></figure>
+
+<p>返回当前<a target="_blank" rel="noopener" href="https://www.2cto.com/os/">系统</a>日期和时间。</p>
+</li>
+<li><p><strong>day(日期)</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">day</span>(<span class="string">&#x27;2007-12-11&#x27;</span>)返回 <span class="number">11</span></span><br></pre></td></tr></table></figure>
+
+<p>返回一个整数，表示指定日期的天的部分。</p>
+</li>
+</ul>
+<p>等价于**<code>datepart(dd, 日期)</code>**</p>
+<ul>
+<li><p><strong>month(日期)</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">month</span>(<span class="string">&#x27;2007-12-11&#x27;</span>)返回 <span class="number">12</span></span><br></pre></td></tr></table></figure>
+
+<p>返回一个整数，表示指定日期的月的部分。</p>
+</li>
+</ul>
+<p>等价于**<code>datepart</code>**(mm, 日期)</p>
+<ul>
+<li><p><strong>year</strong>(日期)</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">year</span>(<span class="string">&#x27;2007-12-11&#x27;</span>)返回<span class="number">2007</span></span><br></pre></td></tr></table></figure>
+
+<p>返回一个整数，表示指定日期的年的部分。</p>
+<p>等价于**<code>datepart(yy, 日期)</code>**</p>
+</li>
+<li><p><strong><code>getutcdate</code>无参数</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> getutcdate()</span><br><span class="line">返回<span class="number">2009</span><span class="number">-04</span><span class="number">-28</span> <span class="number">10</span>:<span class="number">57</span>:<span class="number">24.153</span></span><br></pre></td></tr></table></figure>
+
+<p>返回表示当前的<code>UTC</code>(世界标准时间)时间。即格林尼治时间(GMT)</p>
+</li>
+</ul>
+<h2 id="3、日期部分-指定要返回新值的日期的组成部分。下表列出了-Microsoft-SQL-Server-2008-可识别的日期部分及其缩写。"><a href="#3、日期部分-指定要返回新值的日期的组成部分。下表列出了-Microsoft-SQL-Server-2008-可识别的日期部分及其缩写。" class="headerlink" title="3、日期部分(指定要返回新值的日期的组成部分。下表列出了 Microsoft SQL Server 2008 可识别的日期部分及其缩写。)"></a>3、日期部分(指定要返回新值的日期的组成部分。下表列出了 Microsoft SQL Server 2008 可识别的日期部分及其缩写。)</h2><p>日期部分</p>
+<p>含义</p>
+<p>缩写:</p>
+<ul>
+<li><p>year年<code>yy, yyyy</code></p>
+</li>
+<li><p>quarter季<code>qq, q</code></p>
+</li>
+<li><p>month月mm, m</p>
+</li>
+<li><p><code>dayofyear天(请看函数中的说明)dy, y</code></p>
+</li>
+<li><p><code>day天(请看函数中的说明)dd, d</code></p>
+</li>
+<li><p>week星期wk, <code>ww</code></p>
+</li>
+<li><p>weekday天(请看函数中的说明)<code>dw, w</code></p>
+</li>
+<li><p>hour小时<code>hh</code></p>
+</li>
+<li><p>minute分钟mi, n</p>
+</li>
+<li><p>second秒<code>ss</code>, s</p>
+</li>
+<li><p>millisecond毫秒ms</p>
+</li>
+</ul>
+<h2 id="4、数学函数"><a href="#4、数学函数" class="headerlink" title="4、数学函数"></a>4、数学函数</h2><p>函数名称 参数 示例 说明</p>
+<ul>
+<li><p>abs(数值表达式)</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">abs</span>(<span class="number">-23.4</span>)返回 <span class="number">23.4</span></span><br><span class="line"></span><br><span class="line">返回指定数值表达式的绝对值(正值)</span><br></pre></td></tr></table></figure></li>
+<li><p>pi无参数</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> pi()返回 <span class="number">3.14159265358979</span></span><br><span class="line"></span><br><span class="line">返回π的值</span><br></pre></td></tr></table></figure></li>
+<li><p>cos(浮点表达式)</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">cos</span>(pi()<span class="operator">/</span><span class="number">3</span>)返回 <span class="number">0.5</span></span><br><span class="line"></span><br><span class="line">返回指定弧度的余弦值</span><br></pre></td></tr></table></figure></li>
+<li><p>sin(浮点表达式)</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">sin</span>(pi()<span class="operator">/</span><span class="number">6</span>)返回 <span class="number">0.5</span></span><br><span class="line"></span><br><span class="line">返回指定弧度的正弦值</span><br></pre></td></tr></table></figure></li>
+<li><p>cot(浮点表达式)</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> cot(pi()<span class="operator">/</span><span class="number">4</span>)返回 <span class="number">1</span></span><br><span class="line"></span><br><span class="line">返回指定弧度的余切值</span><br></pre></td></tr></table></figure></li>
+<li><p>tan(浮点表达式)</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">tan</span>(pi()<span class="operator">/</span><span class="number">4</span>)返回 <span class="number">1</span></span><br><span class="line"></span><br><span class="line">返回指定弧度的正切值</span><br></pre></td></tr></table></figure></li>
+<li><p><code>acos</code>(浮点表达式)</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">acos</span>(<span class="number">0.5</span>)返回 <span class="number">1.0471975511966</span></span><br><span class="line"></span><br><span class="line">返回其余弦是所指定的数值表达式的弧度，求反余弦</span><br></pre></td></tr></table></figure></li>
+<li><p><code>asin</code>(浮点表达式)</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">asin</span>(<span class="number">0.5</span>)返回 <span class="number">0.523598775598299</span></span><br><span class="line"></span><br><span class="line">返回其正弦是所指定的数值表达式的弧度，求反正弦</span><br></pre></td></tr></table></figure></li>
+<li><p><code>atan</code>(浮点表达式)</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">atan</span>(<span class="number">1</span>)返回<span class="number">0.785398163397448</span></span><br><span class="line"></span><br><span class="line">返回其正切是所指定的数值表达式的弧度，求反正切</span><br></pre></td></tr></table></figure></li>
+<li><p>degrees(数值表达式)</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> degrees(pi()<span class="operator">/</span><span class="number">4</span>) 返回<span class="number">45</span></span><br><span class="line"></span><br><span class="line">返回以弧度指定的角的相应角度。</span><br></pre></td></tr></table></figure></li>
+<li><p>radians(数值表达式)</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> radians(<span class="number">180.0</span>)</span><br><span class="line"></span><br><span class="line">返回<span class="number">3.1415926535897931</span></span><br><span class="line"></span><br><span class="line">返回指定度数的弧度值。注意如果传入整数值则返回的结果将</span><br><span class="line"></span><br><span class="line">会省略小数部分</span><br></pre></td></tr></table></figure></li>
+<li><p>exp(浮点表达式)</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">exp</span>(<span class="number">4</span>)返回<span class="number">54.5981500331442</span></span><br><span class="line"></span><br><span class="line">返回求</span><br><span class="line"></span><br><span class="line">e 的指定次幂，e<span class="operator">=</span><span class="number">2.718281</span>…</span><br></pre></td></tr></table></figure></li>
+<li><p>log(浮点表达式)</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">log</span>(<span class="number">6</span>)返回<span class="number">1.79175946922805</span></span><br><span class="line"></span><br><span class="line">返回以 e 为底的对数，求自然对数。</span><br></pre></td></tr></table></figure></li>
+<li><p><code>Log10</code>(浮点表达式)</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">log10</span>(<span class="number">100</span>)返回<span class="number">2</span></span><br><span class="line"></span><br><span class="line">返回以 <span class="number">10</span> 为底的对数</span><br></pre></td></tr></table></figure></li>
+<li><p>ceiling(数值表达式)</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">ceiling</span>(<span class="number">5.44</span>)返回<span class="number">6</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="built_in">ceiling</span>(<span class="number">-8.44</span>)返回<span class="number">-8</span></span><br><span class="line"></span><br><span class="line">返回大于或等于指定数值表达式的最小整数。</span><br></pre></td></tr></table></figure></li>
+<li><p>floor(数值表达式)</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">floor</span>(<span class="number">5.44</span>)返回<span class="number">5</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="built_in">floor</span>(<span class="number">-8.44</span>)返回<span class="number">-9</span></span><br><span class="line"></span><br><span class="line">返回小于或等于指定数值表达式的最大整数。</span><br></pre></td></tr></table></figure></li>
+<li><p>power(数值表达式 1，数值表达式 2)</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">power</span>(<span class="number">5</span>,<span class="number">2</span>)返回<span class="number">25</span></span><br><span class="line"></span><br><span class="line">返回数值表达式<span class="number">1</span> 的数值表达式 <span class="number">2</span> 次幂</span><br></pre></td></tr></table></figure></li>
+<li><p>sqrt(数值表达式)</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">sqrt</span>(<span class="number">25</span>)返回<span class="number">5</span></span><br><span class="line"></span><br><span class="line">返回数值表达式的平方根</span><br></pre></td></tr></table></figure></li>
+<li><p>sign(数值表达式)</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> sign(<span class="number">6</span>)返回<span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> sign(<span class="number">-6</span>)返回<span class="number">-1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> sign(<span class="number">0</span>)返回<span class="number">0</span></span><br><span class="line"></span><br><span class="line">表达式为正返回<span class="operator">+</span><span class="number">1</span></span><br><span class="line"></span><br><span class="line">表达式为负返回<span class="number">-1</span></span><br><span class="line"></span><br><span class="line">表达式为零返回<span class="number">0</span></span><br></pre></td></tr></table></figure></li>
+<li><p>rand([整数表达式])</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> rand(<span class="number">100</span>)返回<span class="number">0.715436657367485</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> rand()返回<span class="number">0.28463380767982</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> rand()返回<span class="number">0.0131039082850364</span></span><br></pre></td></tr></table></figure>
+
+<p>返回从0 到 1 之间的随机 float 值。整数表达式为种子，使用相同的种子产生随机数相同。即使用同一个种子值重复调用RAND() 会返回相同的结果。不指定种子则系统会随机生成种子。</p>
+</li>
+<li><p>round(数值表达式[,长度[,操作方式]])</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> round(<span class="number">1236.555</span>,<span class="number">2</span>)返回<span class="number">1236.560</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> round(<span class="number">1236.555</span>,<span class="number">2</span>,<span class="number">1</span>)返回<span class="number">1236.550</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> round(<span class="number">1236.555</span>,<span class="number">0</span>)返回<span class="number">1237.000</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> round(<span class="number">1236.555</span>,<span class="number">-1</span>)返回<span class="number">1240.000</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> round(<span class="number">1236.555</span>,<span class="number">-1</span>,<span class="number">1</span>)返回<span class="number">1230.000</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> round(<span class="number">1236.555</span>,<span class="number">-2</span>)返回<span class="number">1200.000</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> round(<span class="number">1236.555</span>,<span class="number">-3</span>)返回<span class="number">1000.000</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> round(<span class="number">1236.555</span>,<span class="number">-4</span>)返回<span class="number">0.000</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> round(<span class="number">5236.555</span>,<span class="number">-4</span>)出现错误</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> round(<span class="number">5236.555</span>,<span class="number">-4</span>,<span class="number">1</span>)返回<span class="number">0.000</span></span><br><span class="line"></span><br><span class="line">返回一个数值，舍入到指定的长度。注意返回的数值和原数值</span><br><span class="line"></span><br><span class="line">的总位数没有变化。</span><br></pre></td></tr></table></figure>
+
+<p>长度：舍入精度。如果长度为正数，则将数值舍入到长度指定的小数位数。如果长度为负数，则将数值小数点左边部分舍入到长度指定的长度。注意如果长度为负数并且大于小数点前的数字个数，则将返回0。如果长度为负数并且等于小数点前的数字个数且操作方式为四舍五入时，最前面的一位小于5 返回 0，大于等于 5 导致错误出现，如果操作方法不是四舍五入时则不会出现错误，返回结果一律为0。</p>
+<p>操作方式：默认为 0 遵循四舍五入，指定其他整数值则直接截断。</p>
+</li>
+</ul>
+<h2 id="5、数据类型转换函数"><a href="#5、数据类型转换函数" class="headerlink" title="5、数据类型转换函数"></a>5、数据类型转换函数</h2><p>(以下两种函数功能类似,但是 convert 在进行日期转换时还提供了丰富的样式，cast 只能进行普通的日期转换)</p>
+<p>函数名称 参数 示例 描述</p>
+<ul>
+<li><p>convert(数据类型[(长度)]，表达式[，样式])</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">convert</span>(nvarchar,<span class="number">123</span>) 返回<span class="number">123</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> N<span class="string">&#x27;年龄：&#x27;</span><span class="operator">+</span><span class="keyword">convert</span>(nvarchar,<span class="number">23</span>)</span><br><span class="line"></span><br><span class="line">返回 年龄：<span class="number">23</span>(注意：如果想要在结果中正确显示中</span><br><span class="line"></span><br><span class="line">文需要在给定的字符串前面加上 N，加 N 是为了使[数据库](https:<span class="operator">/</span><span class="operator">/</span>www<span class="number">.2</span>cto.com<span class="operator">/</span>database<span class="operator">/</span>)识别Unicode 字符)</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">convert</span>(nvarchar ,getdate())</span><br><span class="line"></span><br><span class="line">将一种数据类型的表达式显式转换为另一种数据类型的表达式。长度：如果数据类型允许设置长度，可以设置长度，例如<span class="type">varchar</span>(<span class="number">10</span>)样式：用于将日期类型数据转换为字符数据类型的日期格式的样式。见下表</span><br><span class="line"></span><br><span class="line">返回 <span class="number">04</span> <span class="number">28</span> <span class="number">2009</span> <span class="number">10</span>:<span class="number">21</span>PM</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">convert</span>(nvarchar ,getdate(),<span class="number">101</span>)</span><br><span class="line"></span><br><span class="line">返回 <span class="number">04</span><span class="operator">/</span><span class="number">28</span><span class="operator">/</span><span class="number">2009</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">convert</span>(nvarchar ,getdate(),<span class="number">120</span>)</span><br><span class="line"></span><br><span class="line">返回 <span class="number">2009</span><span class="number">-04</span><span class="number">-28</span> <span class="number">12</span>:<span class="number">22</span>:<span class="number">21</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">Select</span> <span class="keyword">convert</span>(nvarchar(<span class="number">10</span>) ,getdate(),<span class="number">120</span>)</span><br><span class="line"></span><br><span class="line">返回 <span class="number">2009</span><span class="number">-04</span><span class="number">-28</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">cast</span>(表达式 <span class="keyword">as</span> 数据类型[(长度)])</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="built_in">cast</span>(<span class="number">123</span> <span class="keyword">as</span> nvarchar)返回 <span class="number">123</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> N<span class="string">&#x27;年龄:&#x27;</span><span class="operator">+</span><span class="built_in">cast</span>(<span class="number">23</span> <span class="keyword">as</span> nvarchar)</span><br><span class="line"></span><br><span class="line">返回 年龄：<span class="number">23</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>将一种数据类型的表达式显式转换为另一种数据类型的表达式。日期类型数据转为字符数据类型的日期格式的部分样式表当两个不同数据类型的表达式用运算符组合后，数据类型优先级规则指定将优先级较低的数据类型优先转换为优先级较高的型。 如果此转换不是所支持的隐式转换，则返回错误。 当两个操作数表达式具有相同的数据类型时，运算的结果便为该数据类型。如果需要把优先级高的数据类型转换优先级低的数据类型时需要使用数据类型转换函数进行显示转换。</p>
+<p>`</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SQL</span> Server <span class="number">2005</span> 对数据类型使用以下优先级顺序(先高后低)：</span><br><span class="line"></span><br><span class="line">不带世纪数位 (yy)</span><br><span class="line"></span><br><span class="line">带世纪数位 (yyyy)</span><br><span class="line"></span><br><span class="line">标准</span><br><span class="line"></span><br><span class="line">输入<span class="operator">/</span>输出<span class="operator">-</span></span><br><span class="line"></span><br><span class="line"><span class="number">0</span> 或 <span class="number">100</span></span><br><span class="line"></span><br><span class="line">默认设置mon dd yyyy hh:miAM(或 PM)<span class="number">1</span> <span class="number">101</span></span><br><span class="line"></span><br><span class="line">美国</span><br><span class="line"></span><br><span class="line">mm<span class="operator">/</span>dd<span class="operator">/</span>yyyy <span class="number">2</span> <span class="number">102</span> ANSI yy.mm.dd <span class="number">3103</span></span><br><span class="line"></span><br><span class="line">英国<span class="operator">/</span>法国</span><br><span class="line"></span><br><span class="line">dd<span class="operator">/</span>mm<span class="operator">/</span>yy <span class="number">4</span> <span class="number">104</span></span><br><span class="line"></span><br><span class="line">德国</span><br><span class="line"></span><br><span class="line">dd.mm.yy <span class="number">5</span> <span class="number">105</span></span><br><span class="line"></span><br><span class="line">意大利</span><br><span class="line"></span><br><span class="line">dd<span class="operator">-</span>mm<span class="operator">-</span>yy <span class="number">120</span></span><br><span class="line"></span><br><span class="line">ODBC 规范</span><br><span class="line"></span><br><span class="line">yyyy<span class="operator">-</span>mm<span class="operator">-</span>ddhh:mi:ss(<span class="number">24</span>h)</span><br><span class="line"></span><br><span class="line"><span class="number">1</span>、用户定义数据类型(最高) <span class="number">2</span>、sql_variant <span class="number">3</span>、xml <span class="number">4</span>、datetime <span class="number">5</span>、smalldatetime <span class="number">6</span>、<span class="type">float</span> <span class="number">7</span>、<span class="type">real</span> <span class="number">8</span>、<span class="type">decimal</span> <span class="number">9</span>、money <span class="number">10</span>、smallmoney <span class="number">11</span>、<span class="type">bigint</span> <span class="number">12</span>、<span class="type">int</span> <span class="number">13</span>、<span class="type">smallint</span> <span class="number">14</span>、tinyint <span class="number">15</span>、bit <span class="number">16</span>、ntext <span class="number">17</span>、text <span class="number">18</span>、image <span class="number">19</span>、<span class="type">timestamp</span> <span class="number">20</span>、uniqueidentifier</span><br><span class="line"></span><br><span class="line"><span class="number">21</span>、nvarchar(包括 nvarchar(max)) <span class="number">22</span>、<span class="type">nchar</span> <span class="number">23</span>、<span class="type">varchar</span> (包括 <span class="type">varchar</span>(max)) <span class="number">24</span>、<span class="type">char</span> <span class="number">25</span>、<span class="type">varbinary</span>(包括 <span class="type">varbinary</span>(max)) <span class="number">26</span>、<span class="type">binary</span>(最低)</span><br></pre></td></tr></table></figure>
+
+<p>`</p>
+<h2 id="6、系统函数"><a href="#6、系统函数" class="headerlink" title="6、系统函数"></a>6、系统函数</h2><p>函数名称 参数 示例 描述</p>
+<ul>
+<li><p>newid无参数</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> newid()</span><br><span class="line"></span><br><span class="line">返回 <span class="number">2E6861</span>EF<span class="operator">-</span>F4DB<span class="number">-4</span>FFE<span class="number">-85</span>EA<span class="number">-638242</span>F2E5F2</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> newid()</span><br><span class="line"></span><br><span class="line">返回 <span class="number">09</span>BBDE6F<span class="number">-47</span>C2<span class="number">-4E2</span>E<span class="number">-81E8</span><span class="operator">-</span>AFC50592280C</span><br><span class="line"></span><br><span class="line">返回一个GUID(全局唯一表示符)值</span><br></pre></td></tr></table></figure></li>
+<li><p>isnumeric(任意表达式)</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> isnumeric(<span class="number">1111</span>)返回<span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> isnumeric(<span class="string">&#x27;123rr&#x27;</span>)返回<span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> isnumeric(<span class="string">&#x27;123&#x27;</span>)返回 <span class="number">1</span></span><br><span class="line"></span><br><span class="line">判断表达式是否为数值类型或者是否可以转换成数值。是返回<span class="number">1</span>，不是返回 <span class="number">0</span></span><br></pre></td></tr></table></figure></li>
+<li><p>isnull(任意表达式 1，任意表达式 2)</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> isnull(<span class="keyword">null</span>,N<span class="string">&#x27;没有值&#x27;</span>)返回 没有值</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> isnull(N<span class="string">&#x27;具体的值&#x27;</span>,N<span class="string">&#x27;没有值&#x27;</span>)</span><br><span class="line"></span><br><span class="line">返回 具体的值</span><br><span class="line"></span><br><span class="line">如果任意表达式</span><br><span class="line"></span><br><span class="line"><span class="number">1</span> 不为 <span class="keyword">NULL</span>，则返回它的值;否则，在将任意表达式</span><br><span class="line"></span><br><span class="line"><span class="number">2</span> 的类型转换为任意表达式 <span class="number">1</span> 的类型(如果这两个类型不同)后，返回任意表式</span><br><span class="line"></span><br><span class="line"><span class="number">2</span> 的值。</span><br></pre></td></tr></table></figure></li>
+<li><p>isdate(任意表达式)</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> isdate(getdate()) 返回<span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> isdate(<span class="string">&#x27;1988-1-1&#x27;</span>)返回<span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> isdate(<span class="string">&#x27;198&#x27;</span>)返回<span class="number">0</span></span><br><span class="line"></span><br><span class="line">确定输入表达式是否为有效日期或可转成有效的日期。是返回<span class="number">1</span>，不是返回 <span class="number">0</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="7、排名函数"><a href="#7、排名函数" class="headerlink" title="7、排名函数"></a>7、<strong>排名函数</strong></h2><ul>
+<li>排名函数的常用使用格式：函数名() over (order by 列名 [asc|desc][,列名……])</li>
+</ul>
+<p>注意：返回结果集会根据使用排名函数时指定的列进行排序，因此不要在 from 子句后面再次使用 order by，会导致排名混乱。</p>
+<p>函数名称</p>
+<p>参数 示例 描述</p>
+<ul>
+<li><p>row_number无参数</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> roductID,[Name],ListPrice, <span class="built_in">row_number</span>()</span><br><span class="line"></span><br><span class="line"><span class="keyword">over</span>(<span class="keyword">order</span> <span class="keyword">by</span> ListPrice <span class="keyword">desc</span>) <span class="keyword">as</span> rank <span class="keyword">from</span> Production.Product</span><br><span class="line"></span><br><span class="line">为结果集内每一行进行编号，从<span class="number">1</span>开始后面行依次加 <span class="number">1</span>。</span><br></pre></td></tr></table></figure></li>
+<li><p>rank无参数</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> ProductID,[Name],ListPrice,<span class="built_in">rank</span>()</span><br><span class="line"></span><br><span class="line"><span class="keyword">over</span>(<span class="keyword">order</span> <span class="keyword">by</span> ListPrice <span class="keyword">desc</span>) <span class="keyword">as</span> rank</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> Production.Product</span><br><span class="line"></span><br><span class="line">如果两个或多个行与一个排名关联，则每个关联行将得到相同的排名，排名不连续。例如，如果有价格最高的两种产品的价格相同，它们将列第一。由于已有两行排名在前，所以具有下一个最高价格的产品将排名第三。该排名等于该行之前的所有行数加一。因此，</span><br><span class="line"></span><br><span class="line">RANK 函数并不总返回连续整数。</span><br></pre></td></tr></table></figure></li>
+<li><p>dense_rank无参数</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line"></span><br><span class="line">ProductID,[Name],ListPrice,<span class="built_in">dense_rank</span>()</span><br><span class="line"></span><br><span class="line"><span class="keyword">over</span>(<span class="keyword">order</span> <span class="keyword">by</span> ListPrice <span class="keyword">desc</span>) <span class="keyword">as</span> rank</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> Production.Product</span><br><span class="line"></span><br><span class="line">如果两个或多个行与一个排名关联，则每个关联行将得到相同的排名，排名连续。</span><br><span class="line"></span><br><span class="line">例如，如果有价格最高的两种产品的价格相同，它们将并列第一，下一个最高价</span><br><span class="line"></span><br><span class="line">格的产品将排名第二。因此，</span><br><span class="line"></span><br><span class="line">DENSE_RANK 函数返回的数字没有间断，并且始</span><br><span class="line"></span><br><span class="line">终具有连续的排名。</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="8、聚合函数"><a href="#8、聚合函数" class="headerlink" title="8、聚合函数"></a>8、聚合函数</h2><p>聚合函数对一组值执行计算</p>
+<p>,并返回单个值。除了 COUNT 以外，聚合函数都会忽略空值。聚合函数经常与 SELECT 语句的 GROUP BY 子</p>
+<p>句一起使用。聚合函数的常用使用格式：函数名([all|distinct] 表达式)</p>
+<ul>
+<li>all:默认值，对所有的值进行聚合函数运算包含重复值。</li>
+<li>distinct: 消除重复值后进行聚合函数运算。</li>
+</ul>
+<p>函数名称 示例 描述</p>
+<ul>
+<li><p>avg</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">avg</span>(VacationHours)<span class="keyword">as</span> <span class="string">&#x27;平均休假小时数&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">FROM</span> HumanResources.Employee</span><br><span class="line"></span><br><span class="line"><span class="keyword">WHERE</span> Title <span class="keyword">LIKE</span> <span class="string">&#x27;Vice President%&#x27;</span></span><br><span class="line"></span><br><span class="line">返回 <span class="number">25</span></span><br><span class="line"></span><br><span class="line">返回组中各值的平均值。空值将被忽略。 表达式为数值表达式。</span><br></pre></td></tr></table></figure></li>
+<li><p>count</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">count</span>(<span class="operator">*</span>)<span class="keyword">FROM</span> Production.Product 返回<span class="number">504</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="built_in">count</span>(Color)<span class="keyword">FROM</span> Production.Product 返回 <span class="number">256</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="built_in">count</span>(<span class="keyword">distinct</span> Color)<span class="keyword">FROM</span> Production.Product</span><br><span class="line"></span><br><span class="line">返回 <span class="number">9</span></span><br><span class="line"></span><br><span class="line">返回组中的项数。<span class="built_in">COUNT</span>(<span class="operator">*</span>) 返回组中的项数。包括 <span class="keyword">NULL</span> 值和重复项。如果指定</span><br><span class="line"></span><br><span class="line">表达式则忽略空值。表达式为任意表达式。</span><br></pre></td></tr></table></figure></li>
+<li><p>min</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">min</span>(ListPrice)<span class="keyword">from</span> Production.Product返回<span class="number">0</span></span><br><span class="line"></span><br><span class="line">返回组中的最小值。空值将被忽略。表达式为数值表达式，字符串表达式，日期。</span><br></pre></td></tr></table></figure></li>
+<li><p>max</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">max</span>(ListPrice) <span class="keyword">from</span> Production.Product</span><br><span class="line"></span><br><span class="line">返回<span class="number">3578.27</span></span><br><span class="line"></span><br><span class="line">返回组中的最大值。空值将被忽略。表达式为数值表达式，字符串表达式，日期。</span><br></pre></td></tr></table></figure></li>
+<li><p>sum</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">sum</span>(SickLeaveHours) <span class="keyword">as</span> <span class="string">&#x27;总病假小时数&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">FROM</span> HumanResources.Employee</span><br><span class="line"></span><br><span class="line"><span class="keyword">WHERE</span> Title <span class="keyword">LIKE</span> <span class="string">&#x27;Vice President%&#x27;</span>; 返回<span class="number">97</span></span><br><span class="line"></span><br><span class="line">返回组中所有值的和。空值将被忽略。表达式为数值表达式</span><br></pre></td></tr></table></figure></li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">DJantao</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://tinger1234.github.io/DJantao.github.io/2021/04/28/SQL/SQL2008%20%E8%A1%A8%E8%BE%BE%E5%BC%8F%EF%BC%9A%E6%98%AF%E5%B8%B8%E9%87%8F%E3%80%81%E5%8F%98%E9%87%8F%E3%80%81%E5%88%97%E6%88%96%E5%87%BD%E6%95%B0%E7%AD%89%E4%B8%8E%E8%BF%90%E7%AE%97%E7%AC%A6%E7%9A%84%E4%BB%BB%E6%84%8F%E7%BB%84%E5%90%88%E3%80%82/">https://tinger1234.github.io/DJantao.github.io/2021/04/28/SQL/SQL2008%20%E8%A1%A8%E8%BE%BE%E5%BC%8F%EF%BC%9A%E6%98%AF%E5%B8%B8%E9%87%8F%E3%80%81%E5%8F%98%E9%87%8F%E3%80%81%E5%88%97%E6%88%96%E5%87%BD%E6%95%B0%E7%AD%89%E4%B8%8E%E8%BF%90%E7%AE%97%E7%AC%A6%E7%9A%84%E4%BB%BB%E6%84%8F%E7%BB%84%E5%90%88%E3%80%82/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/DJantao.github.io/2021/04/13/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/8%E3%80%81%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92+%E5%9F%BA%E7%A1%80%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/"><img class="next-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/DJantao.github.io/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info"></div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="https://i.loli.net/2021/03/26/aW12bLRG5yJ8BsI.jpg" onerror="this.onerror=null;this.src='/DJantao.github.io/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">DJantao</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/DJantao.github.io/archives/"><div class="headline">Articles</div><div class="length-num">24</div></a></div><div class="card-info-data-item is-center"><a href="/DJantao.github.io/tags/"><div class="headline">Tags</div><div class="length-num">3</div></a></div><div class="card-info-data-item is-center"><a href="/DJantao.github.io/categories/"><div class="headline">Categories</div><div class="length-num">3</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SQL2008-%E8%A1%A8%E8%BE%BE%E5%BC%8F%EF%BC%9A%E6%98%AF%E5%B8%B8%E9%87%8F%E3%80%81%E5%8F%98%E9%87%8F%E3%80%81%E5%88%97%E6%88%96%E5%87%BD%E6%95%B0%E7%AD%89%E4%B8%8E%E8%BF%90%E7%AE%97%E7%AC%A6%E7%9A%84%E4%BB%BB%E6%84%8F%E7%BB%84%E5%90%88%E3%80%82"><span class="toc-number">1.</span> <span class="toc-text">SQL2008 表达式：是常量、变量、列或函数等与运算符的任意组合。</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%87%BD%E6%95%B0"><span class="toc-number">1.1.</span> <span class="toc-text">1、字符串函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81%E6%97%A5%E6%9C%9F%E5%92%8C%E6%97%B6%E9%97%B4%E5%87%BD%E6%95%B0"><span class="toc-number">1.2.</span> <span class="toc-text">2、日期和时间函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E3%80%81%E6%97%A5%E6%9C%9F%E9%83%A8%E5%88%86-%E6%8C%87%E5%AE%9A%E8%A6%81%E8%BF%94%E5%9B%9E%E6%96%B0%E5%80%BC%E7%9A%84%E6%97%A5%E6%9C%9F%E7%9A%84%E7%BB%84%E6%88%90%E9%83%A8%E5%88%86%E3%80%82%E4%B8%8B%E8%A1%A8%E5%88%97%E5%87%BA%E4%BA%86-Microsoft-SQL-Server-2008-%E5%8F%AF%E8%AF%86%E5%88%AB%E7%9A%84%E6%97%A5%E6%9C%9F%E9%83%A8%E5%88%86%E5%8F%8A%E5%85%B6%E7%BC%A9%E5%86%99%E3%80%82"><span class="toc-number">1.3.</span> <span class="toc-text">3、日期部分(指定要返回新值的日期的组成部分。下表列出了 Microsoft SQL Server 2008 可识别的日期部分及其缩写。)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%E3%80%81%E6%95%B0%E5%AD%A6%E5%87%BD%E6%95%B0"><span class="toc-number">1.4.</span> <span class="toc-text">4、数学函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5%E3%80%81%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E5%87%BD%E6%95%B0"><span class="toc-number">1.5.</span> <span class="toc-text">5、数据类型转换函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6%E3%80%81%E7%B3%BB%E7%BB%9F%E5%87%BD%E6%95%B0"><span class="toc-number">1.6.</span> <span class="toc-text">6、系统函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7%E3%80%81%E6%8E%92%E5%90%8D%E5%87%BD%E6%95%B0"><span class="toc-number">1.7.</span> <span class="toc-text">7、排名函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8%E3%80%81%E8%81%9A%E5%90%88%E5%87%BD%E6%95%B0"><span class="toc-number">1.8.</span> <span class="toc-text">8、聚合函数</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/DJantao.github.io/2021/04/28/SQL/SQL2008%20%E8%A1%A8%E8%BE%BE%E5%BC%8F%EF%BC%9A%E6%98%AF%E5%B8%B8%E9%87%8F%E3%80%81%E5%8F%98%E9%87%8F%E3%80%81%E5%88%97%E6%88%96%E5%87%BD%E6%95%B0%E7%AD%89%E4%B8%8E%E8%BF%90%E7%AE%97%E7%AC%A6%E7%9A%84%E4%BB%BB%E6%84%8F%E7%BB%84%E5%90%88%E3%80%82/" title="No title"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/DJantao.github.io/img/404.jpg'" alt="No title"/></a><div class="content"><a class="title" href="/DJantao.github.io/2021/04/28/SQL/SQL2008%20%E8%A1%A8%E8%BE%BE%E5%BC%8F%EF%BC%9A%E6%98%AF%E5%B8%B8%E9%87%8F%E3%80%81%E5%8F%98%E9%87%8F%E3%80%81%E5%88%97%E6%88%96%E5%87%BD%E6%95%B0%E7%AD%89%E4%B8%8E%E8%BF%90%E7%AE%97%E7%AC%A6%E7%9A%84%E4%BB%BB%E6%84%8F%E7%BB%84%E5%90%88%E3%80%82/" title="No title">No title</a><time datetime="2021-04-28T08:42:16.954Z" title="Created 2021-04-28 16:42:16">2021-04-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/DJantao.github.io/2021/04/13/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/8%E3%80%81%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92+%E5%9F%BA%E7%A1%80%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/" title="No title"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/DJantao.github.io/img/404.jpg'" alt="No title"/></a><div class="content"><a class="title" href="/DJantao.github.io/2021/04/13/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/8%E3%80%81%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92+%E5%9F%BA%E7%A1%80%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/" title="No title">No title</a><time datetime="2021-04-13T14:54:19.957Z" title="Created 2021-04-13 22:54:19">2021-04-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/DJantao.github.io/2021/04/13/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/7%E3%80%81%E8%87%AA%E5%8A%A8%E6%B1%82%E5%AF%BC/" title="No title"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/DJantao.github.io/img/404.jpg'" alt="No title"/></a><div class="content"><a class="title" href="/DJantao.github.io/2021/04/13/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/7%E3%80%81%E8%87%AA%E5%8A%A8%E6%B1%82%E5%AF%BC/" title="No title">No title</a><time datetime="2021-04-13T13:44:02.889Z" title="Created 2021-04-13 21:44:02">2021-04-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/DJantao.github.io/2021/04/13/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/5%E3%80%81%E7%9F%A9%E9%98%B5%E8%AE%A1%E7%AE%97/" title="No title"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/DJantao.github.io/img/404.jpg'" alt="No title"/></a><div class="content"><a class="title" href="/DJantao.github.io/2021/04/13/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/5%E3%80%81%E7%9F%A9%E9%98%B5%E8%AE%A1%E7%AE%97/" title="No title">No title</a><time datetime="2021-04-13T13:43:33.284Z" title="Created 2021-04-13 21:43:33">2021-04-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/DJantao.github.io/2021/04/13/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E7%9F%A9%E9%98%B5%E8%AE%A1%E7%AE%97/" title="No title"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/DJantao.github.io/img/404.jpg'" alt="No title"/></a><div class="content"><a class="title" href="/DJantao.github.io/2021/04/13/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E7%9F%A9%E9%98%B5%E8%AE%A1%E7%AE%97/" title="No title">No title</a><time datetime="2021-04-13T08:08:00.398Z" title="Created 2021-04-13 16:08:00">2021-04-13</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By DJantao</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/DJantao.github.io/js/utils.js"></script><script src="/DJantao.github.io/js/main.js"></script><div class="js-pjax"></div><canvas class="fireworks" mobile="true"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/fireworks.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
